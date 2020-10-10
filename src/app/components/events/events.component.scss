@@ -1,0 +1,38 @@
+.title {
+    margin: 10px;
+}
+ul {
+    list-style: none;
+    padding: 0px;
+}
+li {
+    float: left;
+    margin: 22px;
+}
+.card {
+    width: 18rem; height: 16rem;
+}
+.card img {
+    height: 8rem;
+}
+.card-body p {
+    width: 15rem;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;  
+}
+.add-new {
+    background: lightgray; cursor: pointer;
+}
+.close {
+    position: absolute;
+    top: 5px; right: 5px; color: #ffffff;
+    cursor: pointer;
+}
+.error {
+    padding: 10px;
+    margin: 0px 10px 0px 10px;
+    background: lightsalmon;
+    color: black;
+    border: lightcoral;
+}

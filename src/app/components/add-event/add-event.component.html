@@ -1,0 +1,59 @@
+<div class="title">
+    <h3 (click)="back()"><img src="assets/icons/back-arrow-icon-24.png"> <span style="vertical-align: top;"> Add
+            Event</span></h3>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-5">
+            <form [formGroup]="eventForm">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Event Name</label>
+                    <input formControlName="name" type="text" class="form-control">
+                    <div *ngFor="let error of errorMessages.name">
+                        <ng-container
+                            *ngIf="eventForm.get('name').hasError(error.type) && (eventForm.get('name').dirty || eventForm.get('name').touched)">
+                            <small class="error-message">{{error.message}}</small>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Address</label>
+                    <input formControlName="address" type="text" class="form-control">
+                    <div *ngFor="let error of errorMessages.address">
+                        <ng-container
+                            *ngIf="eventForm.get('address').hasError(error.type) && (eventForm.get('address').dirty || eventForm.get('address').touched)">
+                            <small class="error-message">{{error.message}}</small>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Date</label>
+                    <input formControlName="date" type="date" class="form-control">
+                    <div *ngFor="let error of errorMessages.date">
+                        <ng-container
+                            *ngIf="eventForm.get('date').hasError(error.type) && (eventForm.get('date').dirty || eventForm.get('date').touched)">
+                            <small class="error-message">{{error.message}}</small>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="error" *ngIf="errorMessage != null">{{errorMessage}}</div>
+                <button type="submit" class="btn btn-primary" (click)="addEvent()">Add Event</button>
+            </form>
+        </div>
+        <div class="col-sm-5">
+            <h5>Preview</h5>
+            <div class="card">
+                <img src="assets/image/event1.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{eventForm.controls.name.value == '' ? 'Name of Event' : eventForm.controls.name.value}}</h5>
+                    <p class="card-text">
+                        {{eventForm.controls.address.value == '' ? 'Address' : eventForm.controls.address.value}}</p>
+                    <small
+                        class="float-right">{{eventForm.controls.date.value == '' ? 'Date' : eventForm.controls.date.value | date: 'dd LLL'}}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

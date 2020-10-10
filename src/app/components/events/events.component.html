@@ -1,0 +1,22 @@
+<div class="title">
+    <h3>Home</h3>
+</div>
+<!-- <div *ngIf="this.errorMessage != null" class="error">{{this.errorMessage}}</div> -->
+<ul class="event">
+    <li *ngFor="let event of events; let i=index">
+        <div class="card">
+            <span class="close" (click)="removeEvent(i)">X</span>
+            <img src="assets/image/event1.jpg" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{event.name}}</h5>
+                <p class="card-text">{{event.address}}</p>
+                <small class="float-right">{{event.date}}</small>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="card add-new text-center" routerLink="/addEvents">
+            <h3 style="line-height: 250px;">+ Add Event</h3>
+        </div>
+    </li>
+</ul>
